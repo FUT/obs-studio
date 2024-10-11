@@ -12,6 +12,7 @@
 #include <QHBoxLayout>
 #include <QGridLayout>
 #include <QScreen>
+#include <QtWebEngineWidgets>
 
 #include <string>
 
@@ -61,6 +62,7 @@ OBSBasicStats::OBSBasicStats(QWidget *parent, bool closable)
 	QGridLayout *topLayout = new QGridLayout();
 	outputLayout = new QGridLayout();
 
+	QWebEngineView *webView = new QWebEngineView(parent);
 	bitrates.reserve(REC_TIME_LEFT_INTERVAL / TIMER_INTERVAL);
 
 	int row = 0;

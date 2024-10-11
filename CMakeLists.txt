@@ -15,6 +15,11 @@ include(compilerconfig)
 include(defaults)
 include(helpers)
 
+list(PREPEND CMAKE_PREFIX_PATH $ENV{QTDIR})
+list(PREPEND QT_ADDITIONAL_PACKAGES_PREFIX_PATH $ENV{QTDIR})
+
+
+
 option(ENABLE_UI "Enable building with UI (requires Qt)" ON)
 option(ENABLE_SCRIPTING "Enable scripting support" ON)
 option(ENABLE_HEVC "Enable HEVC encoders" ON)

@@ -13,6 +13,25 @@ target_link_libraries(
   PRIVATE Qt::Widgets Qt::Svg Qt::Xml Qt::Network OBS::qt-wrappers
 )
 
+#target_include_directories(awerty PUBLIC "${PROJECT_SOURCE_DIR}/libobs")
+#target_include_directories(awerty PUBLIC "${PROJECT_SOURCE_DIR}/UI")
+#target_include_directories(awerty PUBLIC "${PROJECT_SOURCE_DIR}/UI/obs-frontend-api")
+
+message(CMAKE_PREFIX_PATH=="${CMAKE_PREFIX_PATH}")
+message(PROJECT_SOURCE_DIR=="${PROJECT_SOURCE_DIR}")
+message(QT_ADDITIONAL_PACKAGES_PREFIX_PATH=="${QT_ADDITIONAL_PACKAGES_PREFIX_PATH}")
+
+
+#target_link_libraries(obs-studio PRIVATE OBS::libobs OBS::frontend-api)
+
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets WebEngineWidgets)
+target_link_libraries(obs-studio PUBLIC
+    Qt6::Core
+    Qt6::Gui
+    Qt6::Widgets
+    Qt6::WebEngineWidgets
+)
+
 set_target_properties(
   obs-studio
   PROPERTIES AUTOMOC ON AUTOUIC ON AUTORCC ON
